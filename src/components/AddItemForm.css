@@ -30,10 +30,12 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: 10px;
+  min-width: 0;
 }
 
 .add-item__input,
 .add-item__select {
+  min-width: 0;
   background: var(--charcoal);
   border: 1px solid rgba(243, 232, 212, 0.14);
   border-radius: 8px;
@@ -85,7 +87,7 @@
   font-size: 0.85rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .add-item__fields {
     grid-template-columns: 1fr;
   }
