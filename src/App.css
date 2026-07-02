@@ -1,0 +1,34 @@
+.layout {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+.layout__menu {
+  min-width: 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--crust-dim);
+  font-size: 0.78rem;
+  font-style: italic;
+  border-top: 1px solid rgba(243, 232, 212, 0.06);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .layout {
+    padding: 20px 16px 48px;
+  }
+}

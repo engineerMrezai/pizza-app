@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Color tokens — wood-fired trattoria at night */
+  --charcoal: #1c1917;
+  --charcoal-2: #262220;
+  --charcoal-3: #322c29;
+  --crust: #f3e8d4;
+  --crust-dim: #cbbfa9;
+  --marinara: #c1272d;
+  --marinara-bright: #e2483f;
+  --basil: #5c8a5a;
+  --basil-bright: #7fb578;
+  --golden: #e4a33d;
+
+  /* Type tokens */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Layout tokens */
+  --radius-card: 14px;
+  --radius-pill: 999px;
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 14px 32px rgba(0, 0, 0, 0.45);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--charcoal);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(193, 39, 45, 0.16), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 0%, rgba(228, 163, 61, 0.10), transparent 55%);
+  color: var(--crust);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--crust);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--marinara);
+  color: var(--crust);
+}
+
+:focus-visible {
+  outline: 2px solid var(--golden);
+  outline-offset: 2px;
+}
+
+/* Shared motion keyframes */
+@keyframes pin-in {
+  0% { opacity: 0; transform: translateY(-14px) rotate(-3deg); }
+  60% { opacity: 1; transform: translateY(2px) rotate(1.5deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(var(--tilt, -1.2deg)); }
+}
+
+@keyframes stamp-in {
+  0% { opacity: 0; transform: scale(2.2) rotate(-18deg); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: scale(1) rotate(-10deg); }
+}
+
+@keyframes flame-flicker {
+  0%, 100% { opacity: 0.55; transform: scaleY(1) translateY(0); }
+  50% { opacity: 0.85; transform: scaleY(1.08) translateY(-2px); }
+}
+
+@keyframes digit-tick {
+  0% { color: var(--golden); text-shadow: 0 0 10px rgba(228, 163, 61, 0.7); }
+  100% { color: var(--basil-bright); text-shadow: none; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
